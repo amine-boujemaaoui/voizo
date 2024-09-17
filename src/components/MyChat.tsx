@@ -1,5 +1,5 @@
 import { useClient } from "@/hooks/useClient";
-import { HomeState } from "@/types/HomeState";
+import { HomeState } from "@/models/HomeState";
 import {
   Channel,
   ChannelList,
@@ -9,6 +9,7 @@ import {
   Window,
 } from "stream-chat-react";
 import "stream-chat-react/dist/css/index.css";
+import ServerList from "./ServerList/ServerList";
 
 export default function MyChat({ apiKey, user, token }: HomeState) {
   const chatClient = useClient({ apiKey, user, TokenOrProvider: token });
@@ -20,6 +21,7 @@ export default function MyChat({ apiKey, user, token }: HomeState) {
   return (
     <Chat client={chatClient}>
       <section className='flex h-screen w-screen layout'>
+        <ServerList />
         <ChannelList />
         <Channel>
           <Window>

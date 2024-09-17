@@ -4,7 +4,7 @@ import { useClerk } from "@clerk/nextjs";
 import { useCallback, useEffect, useState } from "react";
 import { User } from "stream-chat";
 import { LoadingIndicator } from "stream-chat-react";
-import { HomeState } from "@/types/HomeState";
+import { HomeState } from "@/models/HomeState";
 import MyChat from "@/components/MyChat";
 
 export default function Home() {
