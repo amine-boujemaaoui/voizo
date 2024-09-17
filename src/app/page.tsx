@@ -4,12 +4,8 @@ import { useClerk } from "@clerk/nextjs";
 import { useCallback, useEffect, useState } from "react";
 import { User } from "stream-chat";
 import { LoadingIndicator } from "stream-chat-react";
-
-type HomeState = {
-  apiKey: string;
-  user: User;
-  token: string;
-};
+import { HomeState } from "@/types/HomeState";
+import MyChat from "@/components/MyChat";
 
 export default function Home() {
   const [homeState, setHomeState] = useState<HomeState | undefined>();
@@ -87,9 +83,5 @@ export default function Home() {
   if (!homeState) {
     return <LoadingIndicator />;
   }
-  return (
-    <div>
-      <h1>Hello, world!</h1>
-    </div>
-  );
+  return <MyChat {...homeState} />;
 }
